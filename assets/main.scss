@@ -1,0 +1,25 @@
+@import '~/node_modules/normalize.css/normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+*{
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+//Variables
+
+$container-mob:92%;
+
+   //Colors
+$primary:rgb(229, 36, 36,1);
+
+
+
+//Utliity Classes
+.w-full{
+    width:100%;
+}
+.text-red{
+    color:$primary;
+}
+.block{
+    display:block;
+}
