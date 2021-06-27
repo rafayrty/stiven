@@ -35,12 +35,12 @@
 <div class="red-box">
 </div>
 <div class="image1">
-<img src="@/assets/images/img4.png" class="w-full block" alt="">
+<img src="@/assets/images/img4.jpg" class="w-full block" alt="">
 <p>Personal</p>
 
   </div>
 <div class="image2">
-<img src="@/assets/images/img3.png" class="w-full block" alt="">
+<img src="@/assets/images/img3.jpg" class="w-full block" alt="">
   </div>
 <div class="show">
   <section @mouseover="showHover" @mouseleave="showHoverOut">
