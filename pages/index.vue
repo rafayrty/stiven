@@ -499,8 +499,7 @@ header{
 }
 
 }
-
-@media only screen and (orientation:landscape){
+@media only screen and (max-width: 768px) and (orientation:landscape){
   .index-page{
     overflow-y:auto;
   }
@@ -508,4 +507,5 @@ header{
     height:250vh;
   }
 }
+
 </style>
