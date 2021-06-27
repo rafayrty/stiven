@@ -44,10 +44,12 @@
   </div>
 <div class="show">
   <section @mouseover="showHover" @mouseleave="showHoverOut">
+      <a href="javscript:void(0)" >
 <svg  viewBox="0 0 45 6" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M45 3L40 0.113249V5.88675L45 3ZM40.5 2.5L0 2.5V3.5L40.5 3.5V2.5Z" fill="white"/>
 </svg>
-<h4>Show</h4>
+<h4>
+  Show</h4></a>
   </section>
 </div>
 <div class="heading">
