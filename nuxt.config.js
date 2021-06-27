@@ -1,12 +1,9 @@
 export default {
-  server: {
-    host: '0.0.0.0' // default: localhost
-  },
-  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  ssr: false,
-
-  // Target: https://go.nuxtjs.dev/config-target
+  // server: {
+  //   host: '0.0.0.0' // default: localhost
+  // },
   target: 'static',
+  ssr: false,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
