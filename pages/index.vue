@@ -499,4 +499,13 @@ header{
 }
 
 }
+
+@media only screen and (orientation:landscape){
+  .index-page{
+    overflow-y:auto;
+  }
+  .index-page,.index-grid{
+    height:250vh;
+  }
+}
 </style>
