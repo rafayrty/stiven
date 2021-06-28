@@ -223,7 +223,9 @@ export default {
          this.menuTL.from('.overlay-menu .img1 img',{duration:.5,scale:1.4,ease:'power2.inOut'},'-=.6');
          this.menuTL.to(rule2,{duration:.8,cssRule:{scaleY:0},ease:"power4.inOut"})
          this.menuTL.from('.overlay-menu .img2 img',{duration:.5,scale:1.2,ease:'power2.inOut'},'-=.6');
+         if(window.innerWidth>768){
          this.menuTL.from('.menu-redbox2 ',{duration:.5,transformOrigin:'center right',scaleX:0,ease:'power4.inOut'});
+         }
          this.menuTL.from('.menu-redbox ',{duration:.5,transformOrigin:'center bottom',scaleY:0,ease:'power4.inOut'});
          this.menuTL.from('.menu-links ul li ',{duration:.5,stagger:0.2,autoAlpha:0,translateY:'10%',ease:'power4.inOut'});
          this.menuTL.from('.menu-text',{duration:.5,autoAlpha:0,translateY:'10%',ease:'power2.inOut'});
