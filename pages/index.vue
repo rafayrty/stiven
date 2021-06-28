@@ -231,12 +231,15 @@ export default {
          this.menuTL.from('.menu-text',{duration:.5,autoAlpha:0,translateY:'10%',ease:'power2.inOut'});
            }
       }else{
-        gsap.to('.overlay-menu',{duration:.3,translateY:'100%',ease:'power2.inOut'});
-
-        setTimeout(() => {
-          gsap.set('.overlay-menu',{translateY:'-100%'});
+        let tl = gsap.timeline();
+        tl.to('.overlay-menu',{duration:.6,scaleY:1.3,ease:'power2.inOut'});
+        tl.to('.overlay-menu',{duration:1,translateY:'-130%',ease:'power3.inOut'},'-=.5').add(()=>{
+          gsap.set('.overlay-menu',{translateY:'-100%',scaleY:1});
                   this.menuTL.seek(0).pause();
-        }, 300);
+        })
+
+
+
         this.clicked=false;
 
 //         alert("Reverse");
