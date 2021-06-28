@@ -209,7 +209,7 @@ export default {
       gsap.to(rule3,{duration:.5,cssRule:{scaleX:1}})
     },
     openMenu(){
-    if(this.clicked===false){
+    if(this.clicked==false){
            this.clicked = true;
            if(this.menuTL.paused()){
              this.menuTL.play();
@@ -234,7 +234,7 @@ export default {
         setTimeout(() => {
           gsap.set('.overlay-menu',{translateY:'-100%'});
                   this.menuTL.seek(0).pause();
-        }, 1000);
+        }, 300);
         this.clicked=false;
 
 //         alert("Reverse");
