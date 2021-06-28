@@ -232,8 +232,10 @@ export default {
            }
       }else{
         let tl = gsap.timeline();
-        tl.to('.overlay-menu',{duration:.6,scaleY:1.3,ease:'power2.inOut'});
-        tl.to('.overlay-menu',{duration:1,translateY:'-130%',ease:'power3.inOut'},'-=.5').add(()=>{
+        tl.to('.overlay-menu',{duration:.6,scaleY:1.2,ease:'power2.inOut'});
+        tl.to('.overlay-menu',{duration:1,translateY:'-120%',ease:'power3.inOut'},'-=.5');
+        tl.to('.overlay-menu',{duration:.6,scaleY:1,ease:'power3.inOut'},'-=.8')
+        .add(()=>{
           gsap.set('.overlay-menu',{translateY:'-100%',scaleY:1});
                   this.menuTL.seek(0).pause();
         })
