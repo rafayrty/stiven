@@ -8,12 +8,98 @@
 
     </div>
           <div class="header-container">
+<!-- Menu Start  -->
+      <div class="overlay-menu">
 
+
+<div class="menu-grid">
+
+<p class="menu-text">menu</p>
+<div class="img1">
+<img src="@/assets/images/menu1.jpg" class="w-full">
+
+</div>
+
+<div class="img2">
+<img src="@/assets/images/menu2.jpg" class="w-full">
+
+</div>
+<div class="menu-redbox"></div>
+<div class="menu-redbox2"></div>
+
+<div class="menu-links">
+
+<ul>
+
+<li> 
+
+<section class="icon"> <span class="num">01</span><span class="arrow">
+
+<svg  viewBox="0 0 48 6" xmlns="http://www.w3.org/2000/svg"  fill="currentColor">
+<path d="M48 3L43 0.113249V5.88675L48 3ZM43.5 2.5L0 2.5V3.5L43.5 3.5V2.5Z"/>
+</svg>
+
+</span> </section>
+<div class="link">
+<a href="#">
+
+<span>
+Home</span></a></div></li>
+<li class="active"><section class="icon"> <span class="num">02</span><span class="arrow">
+
+<svg  viewBox="0 0 48 6" xmlns="http://www.w3.org/2000/svg">
+<path d="M48 3L43 0.113249V5.88675L48 3ZM43.5 2.5L0 2.5V3.5L43.5 3.5V2.5Z" fill="currentColor"/>
+</svg>
+
+</span> </section> <div class="link">
+<a href="#"><span>About</span></a></div></li>
+<li> 
+<section class="icon"> <span class="num">03</span><span class="arrow">
+
+<svg  viewBox="0 0 48 6" xmlns="http://www.w3.org/2000/svg">
+<path d="M48 3L43 0.113249V5.88675L48 3ZM43.5 2.5L0 2.5V3.5L43.5 3.5V2.5Z" fill="currentColor"/>
+</svg>
+
+</span> </section>
+<div class="link">
+<a href="#">
+<span>Gallery</span></a></div></li>
+<li> 
+<section class="icon"> <span class="num">04</span><span class="arrow">
+
+<svg  viewBox="0 0 48 6" xmlns="http://www.w3.org/2000/svg">
+<path d="M48 3L43 0.113249V5.88675L48 3ZM43.5 2.5L0 2.5V3.5L43.5 3.5V2.5Z" fill="currentColor"/>
+</svg>
+
+</span> </section>
+<div class="link">
+<a href="#">
+<span>Contact</span></a></div></li>
+
+
+</ul>
+
+</div>
+
+
+
+
+</div>
+
+
+
+      </div>
+        <!-- Menu End -->
     <header>
+
+
+        
+        
+        
         <nuxt-link to="/" style="color:inherit;">
 
       <div  class="logo" @mouseover="logoHover($event)" @mouseleave="logoHoverOut($event)">
-        <svg width="20" height="25" viewBox="0 0 20 25"  xmlns="http://www.w3.org/2000/svg">
+        <svg  viewBox="0 0 20 25"  xmlns="http://www.w3.org/2000/svg">
           <path d="M0 20H17.5L20 25H2.5L0 20Z" fill="currentColor" />
           <path d="M0 0H17.5L20 5H2.5L0 0Z" fill="currentColor" />
           <path d="M17.5 10L12.5 10L15 5L20 5L17.5 10Z" fill="currentColor" />
@@ -22,11 +108,13 @@
       </div>
               </nuxt-link>
       <div class="menu-icon">
+        <a href="" @click.prevent="openMenu()" >
 <svg width="40" height="15" viewBox="0 0 40 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0 0H40V4H0V0Z" fill="#E52424"/>
 
 <path d="M15 11H40V15H15V11Z" id="menu2" fill="#E52424"/>
 </svg>
+</a>
       </div>
     </header>
           </div>
@@ -71,6 +159,12 @@ import gsap from 'gsap'
 import  CSSRulePlugin  from "gsap/CSSRulePlugin";
 import imagesLoaded from 'imagesloaded';
 export default {
+  data(){
+    return{
+      menuTL:gsap.timeline(),
+      clicked:false
+    }
+  },
   mounted () {
     imagesLoaded( document.querySelector('.index-page'), function( instance ) {
     gsap.registerPlugin(CSSRulePlugin);
@@ -113,6 +207,44 @@ export default {
     showHoverOut(){
       let rule3 = CSSRulePlugin.getRule('.show:after');
       gsap.to(rule3,{duration:.5,cssRule:{scaleX:1}})
+    },
+    openMenu(){
+    if(this.clicked===false){
+           this.clicked = true;
+           if(this.menuTL.paused()){
+             this.menuTL.play();
+           }else{
+        //  this.menuTL = gsap.timeline();
+         let rule = CSSRulePlugin.getRule('.overlay-menu .img1:after');
+         let rule2 = CSSRulePlugin.getRule('.overlay-menu .img2:after');
+         this.menuTL.set('.overlay-menu',{display:'block'})
+         this.menuTL.to('.overlay-menu',{duration:1,translateY:0,ease:'power4.inOut'});
+         this.menuTL.to(rule,{duration:.8,cssRule:{scaleY:0},ease:"power4.inOut"})
+         this.menuTL.from('.overlay-menu .img1 img',{duration:.5,scale:1.4,ease:'power2.inOut'},'-=.6');
+         this.menuTL.to(rule2,{duration:.8,cssRule:{scaleY:0},ease:"power4.inOut"})
+         this.menuTL.from('.overlay-menu .img2 img',{duration:.5,scale:1.2,ease:'power2.inOut'},'-=.6');
+         this.menuTL.from('.menu-redbox2 ',{duration:.5,transformOrigin:'center right',scaleX:0,ease:'power4.inOut'});
+         this.menuTL.from('.menu-redbox ',{duration:.5,transformOrigin:'center bottom',scaleY:0,ease:'power4.inOut'});
+         this.menuTL.from('.menu-links ul li ',{duration:.5,stagger:0.2,autoAlpha:0,translateY:'10%',ease:'power4.inOut'});
+         this.menuTL.from('.menu-text',{duration:.5,autoAlpha:0,translateY:'10%',ease:'power2.inOut'});
+           }
+      }else{
+        gsap.to('.overlay-menu',{duration:.3,translateY:'100%',ease:'power2.inOut'});
+
+        setTimeout(() => {
+          gsap.set('.overlay-menu',{translateY:'-100%'});
+                  this.menuTL.seek(0).pause();
+        }, 1000);
+        this.clicked=false;
+
+//         alert("Reverse");
+      //  this.clicked = false;
+//       if (this.menuTL.reversed()) {
+//     this.menuTL.play();
+// } else {
+//     this.menuTL.reverse();
+// }
+      }
     }
   }
 }
@@ -328,7 +460,7 @@ export default {
   position:relative;
   svg{
     color:#E52424;
-     cursor:pointer;  
+    //  cursor:pointer;  
   }
 }
 header{
@@ -338,16 +470,24 @@ header{
   position:absolute;
   display:flex;
   justify-content: space-between;
+  .logo{
+    width:1rem;
+  }
 }
 @media only screen and (min-width:1024px){
+    header{
+      .logo{
+    width:1.5rem;
+  }
+    }
   .loader{
     svg{
       width:15%;
     }
   }
-  .header-container{
-    max-width:82%;
-  }
+  // .header-container{
+  //   max-width:82%;
+  // }
   .red-box{
     grid-row:1 / 9;
   }
@@ -364,7 +504,7 @@ header{
 @media only screen and (min-width:1280px){
 
 .header-container{
-      max-width:82%;
+      // max-width:82%;
 header{
   padding-top:3.4rem;
 }
@@ -448,6 +588,11 @@ header{
 }
 
 @media only screen and (min-width:1800px){
+  header{
+    .logo{
+      width:2rem;
+    }
+  }
   .header-container{
     max-width:85%;
   }
@@ -499,7 +644,7 @@ header{
 }
 
 }
-@media only screen and (max-width: 768px) and (orientation:landscape){
+@media only screen and (max-width: 900px) and (orientation:landscape){
   .index-page{
     overflow-y:auto;
   }

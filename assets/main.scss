@@ -1,4 +1,7 @@
 @import '~/node_modules/normalize.css/normalize.css';
+@import 'variables';
+
+@import 'menu';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 *{
     font-family: 'Roboto', sans-serif;
@@ -6,10 +9,7 @@
 }
 //Variables
 
-$container-mob:92%;
 
-   //Colors
-$primary:rgb(229, 36, 36,1);
 
 
 
@@ -28,3 +28,12 @@ a{
     text-decoration:none;
     color:inherit;
 }
+ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+
+//Css Starts
+

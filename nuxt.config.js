@@ -1,7 +1,7 @@
 export default {
-  // server: {
-  //   host: '0.0.0.0' // default: localhost
-  // },
+  server: {
+    host: '0.0.0.0' // default: localhost
+  },
   target: 'static',
   ssr: false,
 

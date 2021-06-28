@@ -17,4 +17,4 @@ $ npm run start
 $ npm run generate
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+To Visit The Actual Website Go To [Stiven](https://sad-newton-9a4473.netlify.app/).
