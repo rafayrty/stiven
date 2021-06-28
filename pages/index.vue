@@ -31,7 +31,7 @@
 
 <ul>
 
-<li> 
+<li class="active"> 
 
 <section class="icon"> <span class="num">01</span><span class="arrow">
 
@@ -45,7 +45,7 @@
 
 <span>
 Home</span></a></div></li>
-<li class="active"><section class="icon"> <span class="num">02</span><span class="arrow">
+<li ><section class="icon"> <span class="num">02</span><span class="arrow">
 
 <svg  viewBox="0 0 48 6" xmlns="http://www.w3.org/2000/svg">
 <path d="M48 3L43 0.113249V5.88675L48 3ZM43.5 2.5L0 2.5V3.5L43.5 3.5V2.5Z" fill="currentColor"/>
@@ -168,6 +168,7 @@ export default {
   mounted () {
     imagesLoaded( document.querySelector('.index-page'), function( instance ) {
     gsap.registerPlugin(CSSRulePlugin);
+    // gsap.registerPlugin(Flip);
     let rule = CSSRulePlugin.getRule('.image1:after');
     let rule2 = CSSRulePlugin.getRule('.image2:after');
     let rule3 = CSSRulePlugin.getRule('.show:after');
@@ -233,9 +234,7 @@ export default {
       }else{
         let tl = gsap.timeline();
         tl.to('.overlay-menu',{duration:.6,scaleY:1.2,ease:'power2.inOut'});
-        tl.to('.overlay-menu',{duration:1,translateY:'-120%',ease:'power3.inOut'},'-=.5');
-        tl.to('.overlay-menu',{duration:.6,scaleY:1,ease:'power3.inOut'},'-=.8')
-        .add(()=>{
+        tl.to('.overlay-menu',{duration:1,translateY:'-120%',ease:'power3.inOut'},'-=.5').add(()=>{
           gsap.set('.overlay-menu',{translateY:'-100%',scaleY:1});
                   this.menuTL.seek(0).pause();
         })
