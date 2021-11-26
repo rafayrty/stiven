@@ -1,5 +1,7 @@
 # Stiven
 
+<p align="center"><a href="https://sad-newton-9a4473.netlify.app" target="_blank"><img src="https://i.ibb.co/3f6zMHF/2021-11-26-22-22-57-Window.png" width="800"></a></p>
+
 ## Build Setup
 
 ```bash
